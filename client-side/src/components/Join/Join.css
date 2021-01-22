@@ -67,4 +67,5 @@ body {
 
 button:focus {
   outline: 0;
+  cursor: pointer;
 }

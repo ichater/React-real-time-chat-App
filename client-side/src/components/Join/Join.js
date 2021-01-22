@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../CSS/Join.css";
+import "./Join.css";
 
 export default function Join() {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
+
   return (
-    <div className="joinOuterContainer">
+    <div className="joinOuterContainer" onclick={() => alert("effective")}>
       <div className="joinInnerContainer">
         <h1 className="heading">Join</h1>
         <div>
@@ -25,7 +26,10 @@ export default function Join() {
             onChange={(e) => setRoom(e.target.value)}
           />
         </div>
-        <Link>
+        <Link
+          onClick={(e) => (!name || !room ? e.preventDefault() : null)}
+          to={`/chat?name=${name}&room=${room}`}
+        >
           <button className="button mt-20" type="submit">
             Sign In
           </button>
